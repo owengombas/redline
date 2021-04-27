@@ -9,8 +9,11 @@ namespace HE_Arc::RPG {
 class Hero {
  public:
   Hero() = default;
-  // Hero(const Hero& hero);  Not needed
-  Hero(int strength, int agility, int intelligence, double hp, string name);
+  Hero(const Hero &hero);
+  Hero(int strength, int agility, int intelligence, double hp, string name,
+       Sword &sword);
+
+  virtual ~Hero();
 
   int getStrength() const { return strength; }
   int getAgility() const { return agility; }
@@ -18,6 +21,8 @@ class Hero {
   double getHp() const { return hp; }
   string getName() const { return name; }
   Sword getSword() const { return *sword; }
+  friend ostream &operator<<(ostream &s, const Hero &hero);
+  Hero &operator=(const Hero &hero);
 
  protected:
   int strength = 0;
@@ -25,9 +30,15 @@ class Hero {
   int intelligence = 0;
   double hp = 0;
   string name = "no_name";
-  Sword* sword = new Sword();
+  Sword *sword = nullptr;
 
-  void show();
-  void interact(const Hero& hero);
+  // void show(); V1
+  void interact(const Hero &hero);
+
+ private:
+  Hero &init(int strength, int agility, int intelligence, double hp,
+             string name, Sword *sword);
 };
+
+ostream &operator<<(ostream &s, const Hero &hero);
 }  // namespace HE_Arc::RPG
