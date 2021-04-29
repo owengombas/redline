@@ -1,3 +1,4 @@
 *.dSYM
 main
 resume.zip
+.DS_Store
