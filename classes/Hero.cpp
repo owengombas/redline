@@ -25,7 +25,7 @@ namespace HE_Arc::RPG
                hero.sword);
   }
 
-  Hero &Hero::operator=(const Hero &hero) 
+  Hero &Hero::operator=(const Hero &hero)
   {
     this->init(hero.strength, hero.agility, hero.intelligence, hero.hp, hero.name,
                hero.sword);
@@ -46,7 +46,7 @@ namespace HE_Arc::RPG
     return *this;
   }
 
-  ostream &operator<<(ostream &s, const Hero &hero) 
+  ostream &operator<<(ostream &s, const Hero &hero)
   {
     s << "=================" << endl;
     s << "HERO: " << hero.getName() << endl;
@@ -57,4 +57,6 @@ namespace HE_Arc::RPG
     s << "HP: " << hero.getHp() << endl;
     return s;
   }
+
+  void Hero::interact(const Hero &hero) {}
 } // namespace HE_Arc::RPG
