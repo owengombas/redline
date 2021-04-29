@@ -373,7 +373,7 @@ Human::Human(const Human& human)
 }
 ```
 
-![](./recopie.png)
+![](./images/recopie.png)
 
 #### Par copie en profondeur
 ```cpp
@@ -395,7 +395,7 @@ Human::Human(const Human& human)
 }
 ```
 
-![](./recopie2.png)
+![](./images/recopie2.png)
 
 ## Appels de constructeurs
 ```cpp
@@ -705,7 +705,7 @@ class Monkey {
 ```
 
 # Diagramme UML
-![](./uml.png)
+![](./images/uml.png)
 
 ## Membres privés
 préfixés par `-`
