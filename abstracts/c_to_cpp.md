@@ -418,6 +418,8 @@ int x = max(1, 2);
 # Les struct
 On a aussi les `struct` en C++
 
+> Dans un `struct` tous les membres sont `public` par défaut, mais `private` pour les `class`
+
 ```cpp
 struct Vector 
 {
