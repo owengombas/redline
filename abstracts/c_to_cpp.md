@@ -173,7 +173,7 @@ if (!(cin >> n))
 Problème dans le flux d'entrée, saisie incorrecte
 
 `cin.clear()`  
-Remet les bots de contrôle de flux à OK
+Remet les bits de contrôle de flux à OK
 
 `cin.eof()`  
 Fin du flux d'entrée
@@ -332,7 +332,7 @@ double *ptr = new double;
 ```
 
 ## Equivalent de `free`
-L'équivalent de `free` en C est le mot clé `delete`, qui renvoi un pointeur
+L'équivalent de `free` en C est le mot clé `delete`
 ```cpp
 double *ptr = new double;
 delete ptr;
