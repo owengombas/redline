@@ -326,13 +326,13 @@ int minimum(int a, int b, int c)
 # Allocation dynamique
 
 ## Equivalent de `malloc`
-L'équivalent de `malloc` en C est le mot clé `new`, qui renvoi un pointeur
+L'équivalent de `malloc` en C++ est le mot clé `new`, qui renvoi un pointeur
 ```cpp
 double *ptr = new double;
 ```
 
 ## Equivalent de `free`
-L'équivalent de `free` en C est le mot clé `delete`
+L'équivalent de `free` en C++ est le mot clé `delete`
 ```cpp
 double *ptr = new double;
 delete ptr;
