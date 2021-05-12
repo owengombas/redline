@@ -7,11 +7,10 @@
 
 using namespace std;
 
-namespace HE_Arc::RPG
-{
-  Warrior::Warrior(int strength, int agility, int intelligence, double hp,
-                   string name, Sword *sword)
-      : Hero(strength, agility, intelligence, hp, name, sword) {}
+namespace HE_Arc::RPG {
+Warrior::Warrior(int strength, int agility, int intelligence, double hp,
+                 string name, Sword *sword)
+    : Hero(strength, agility, intelligence, hp, name, sword) {}
 
-  void Warrior::interact(const Hero &hero) {}
+void Warrior::interact(const Hero &hero) {}
 } // namespace HE_Arc::RPG

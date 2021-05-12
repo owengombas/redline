@@ -9,8 +9,7 @@
 using namespace std;
 using namespace HE_Arc::RPG;
 
-int main(int argc, char const *argv[])
-{
+int main(int argc, char const *argv[]) {
   list<Hero *> party;
 
   Sword *defaultSword = new Sword(10);
@@ -25,8 +24,7 @@ int main(int argc, char const *argv[])
   party.push_back(jerem);
   party.push_back(julien);
 
-  for (const auto &hero : party)
-  {
+  for (const auto &hero : party) {
     cout << hero;
   }
 
