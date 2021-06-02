@@ -1,7 +1,10 @@
+#include <iostream>
+
 #include "../headers/Sword.h"
 
 using namespace std;
 
 namespace HE_Arc::RPG {
-Sword::Sword(int damage) : damage(damage) {}
+string Sword::getName() const { return "sword"; }
+int Sword::getFeature() const { return this->damage; }
 } // namespace HE_Arc::RPG

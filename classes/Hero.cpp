@@ -2,38 +2,43 @@
 
 #include <iostream>
 
-#include "../headers/Sword.h"
+#include "../headers/IObject.h"
 
 using namespace std;
 
 namespace HE_Arc::RPG {
 Hero::Hero(int strength, int agility, int intelligence, double hp, string name,
-           Sword *sword)
+           IObject *pObject)
     : strength(strength), agility(agility), intelligence(intelligence), hp(hp),
-      name(name), sword(sword) {}
+      name(name), pObject(pObject) {}
 
-Hero::~Hero() { delete this->sword; }
+Hero::~Hero() { delete this->pObject; }
 
 Hero::Hero(const Hero &hero) {
   this->init(hero.strength, hero.agility, hero.intelligence, hero.hp, hero.name,
-             hero.sword);
+             hero.pObject);
 }
 
 Hero &Hero::operator=(const Hero &hero) {
   this->init(hero.strength, hero.agility, hero.intelligence, hero.hp, hero.name,
-             hero.sword);
+             hero.pObject);
 
   return *this;
 }
 
+void Hero::interact(const Hero &otherHero) {
+  cout << "Hero " << this->getName() << " interact with "
+       << otherHero.getName();
+}
+
 Hero &Hero::init(int strength, int agility, int intelligence, double hp,
-                 string name, Sword *sword) {
+                 string name, IObject *pObject) {
   this->agility = agility;
   this->strength = strength;
   this->hp = hp;
   this->intelligence = intelligence;
   this->name = name;
-  this->sword = sword;
+  this->pObject = pObject;
 
   return *this;
 }
@@ -48,6 +53,4 @@ ostream &operator<<(ostream &s, const Hero &hero) {
   s << "HP: " << hero.getHp() << endl;
   return s;
 }
-
-void Hero::interact(const Hero &hero) {}
 } // namespace HE_Arc::RPG

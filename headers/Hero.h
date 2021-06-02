@@ -1,7 +1,8 @@
 #pragma once
 #include <iostream>
 
-#include "Sword.h"
+#include "Backpack.h"
+#include "IObject.h"
 
 using namespace std;
 
@@ -11,20 +12,22 @@ public:
   Hero() = default;
   Hero(const Hero &hero);
   Hero(int strength, int agility, int intelligence, double hp, string name,
-       Sword *sword);
+       IObject *sword);
 
   virtual ~Hero();
 
+  virtual void interact(const Hero &otherHero) = 0;
   int getStrength() const { return strength; }
   int getAgility() const { return agility; }
   int getIntelligence() const { return intelligence; }
   double getHp() const { return hp; }
   string getName() const { return name; }
-  Sword getSword() const { return *sword; }
+  IObject *getObject() const { return pObject; }
 
   friend ostream &operator<<(ostream &s, const Hero &hero);
   Hero &operator=(const Hero &hero);
-  virtual void interact(const Hero &hero);
+
+  Backpack backpack;
 
 protected:
   int strength = 0;
@@ -32,12 +35,11 @@ protected:
   int intelligence = 0;
   double hp = 0;
   string name = "no_name";
-  Sword *sword = nullptr;
-  // void show(); V1
+  IObject *pObject = nullptr;
 
 private:
   Hero &init(int strength, int agility, int intelligence, double hp,
-             string name, Sword *sword);
+             string name, IObject *sword);
 };
 
 ostream &operator<<(ostream &s, const Hero &hero);

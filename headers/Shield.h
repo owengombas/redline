@@ -1,0 +1,21 @@
+#pragma once
+#include <iostream>
+
+#include "IObject.h"
+
+using namespace std;
+
+namespace HE_Arc::RPG {
+class Shield : public IObject {
+public:
+  Shield() = default;
+  Shield(int solidity) : solidity(solidity){};
+  virtual ~Shield() override = default;
+
+  string getName() const override;
+  int getFeature() const override;
+
+private:
+  int solidity = 10;
+};
+} // namespace HE_Arc::RPG
