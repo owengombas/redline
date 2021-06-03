@@ -30,6 +30,7 @@ public:
   Backpack backpack;
 
 protected:
+  int money = 0;
   int strength = 0;
   int agility = 0;
   int intelligence = 0;
