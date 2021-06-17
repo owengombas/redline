@@ -5,13 +5,19 @@
 using namespace std;
 
 namespace HE_Arc::RPG {
-bool Backpack::isNotEmpty() const { return !mStack.empty(); }
+bool Backpack::isNotEmpty() const { return !this->items.empty(); }
 
-void Backpack::pack(IObject *pObject) { mStack.push(pObject); }
+void Backpack::add(IObject *pObject) { this->items.push_back(pObject); }
 
-IObject *Backpack::unpack() {
-  IObject *pObject = this->mStack.top();
-  mStack.pop();
-  return pObject;
+void Backpack::remove(const IObject *pObject) {
+  auto found = find(this->items.begin(), this->items.end(), pObject);
+  if (found != this->items.end()) {
+    this->items.erase(found);
+  }
+}
+
+bool Backpack::exists(const IObject *pObject) {
+  auto found = find(this->getItems().begin(), this->getItems().end(), pObject);
+  return found != this->getItems().end();
 }
 } // namespace HE_Arc::RPG

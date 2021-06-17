@@ -15,6 +15,8 @@ public:
   string getName() const override;
   int getFeature() const override;
 
+  Shield *clone() const override { return new Shield(*this); };
+
 private:
   int solidity = 10;
 };

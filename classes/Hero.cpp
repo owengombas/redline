@@ -1,8 +1,8 @@
-#include "../headers/Hero.h"
-
 #include <iostream>
 
+#include "../headers/Hero.h"
 #include "../headers/IObject.h"
+#include "../headers/Log.h"
 
 using namespace std;
 
@@ -43,14 +43,39 @@ Hero &Hero::init(int strength, int agility, int intelligence, double hp,
   return *this;
 }
 
+// A hero can exchange their backpack items with money
+void Hero::sell(IObject *pObject, Hero *hero) {
+  if (!this->backpack.exists(pObject)) {
+    throw runtime_error("You do not possess this item");
+  }
+
+  float price = pObject->getPrice();
+  this->money += price;
+  hero->money -= price;
+
+  hero->backpack.add(pObject);
+  this->backpack.remove(pObject);
+
+  Log::writeTransaction(this, hero, pObject, price);
+}
+
 ostream &operator<<(ostream &s, const Hero &hero) {
   s << "=================" << endl;
-  s << "HERO: " << hero.getName() << endl;
+  s << hero.getType() << ": " << hero.getName() << endl;
   s << "=================" << endl;
-  s << "strength: " << hero.getStrength() << endl;
-  s << "agility: " << hero.getAgility() << endl;
-  s << "intelligence: " << hero.getIntelligence() << endl;
+  s << "Strength: " << hero.getStrength() << endl;
+  s << "Agility: " << hero.getAgility() << endl;
+  s << "Intelligence: " << hero.getIntelligence() << endl;
+  s << "Money: " << hero.getMoney() << endl;
   s << "HP: " << hero.getHp() << endl;
+  s << "Object in hands: " << *hero.getObject() << endl;
+
+  s << "Backpack: " << endl;
+
+  for (const auto &item : hero.backpack.getItems()) {
+    s << "    " << *item << endl;
+  }
+
   return s;
 }
 } // namespace HE_Arc::RPG

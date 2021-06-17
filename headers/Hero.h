@@ -17,20 +17,26 @@ public:
   virtual ~Hero();
 
   virtual void interact(const Hero &otherHero) = 0;
+  virtual const string getType() const = 0;
+
+  void sell(IObject *pObject, Hero *hero);
+
   int getStrength() const { return strength; }
   int getAgility() const { return agility; }
   int getIntelligence() const { return intelligence; }
-  double getHp() const { return hp; }
+  int getHp() const { return hp; }
+  float getMoney() const { return money; }
   string getName() const { return name; }
   IObject *getObject() const { return pObject; }
 
+  friend class Vendor;
   friend ostream &operator<<(ostream &s, const Hero &hero);
   Hero &operator=(const Hero &hero);
 
   Backpack backpack;
 
 protected:
-  int money = 0;
+  float money = 250;
   int strength = 0;
   int agility = 0;
   int intelligence = 0;

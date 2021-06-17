@@ -15,6 +15,8 @@ public:
   string getName() const override;
   int getFeature() const override;
 
+  Potion *clone() const override { return new Potion(*this); };
+
 protected:
   int power = 10;
 };

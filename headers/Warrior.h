@@ -16,5 +16,7 @@ public:
       : Hero(strength, agility, intelligence, hp, name, pObject) {}
 
   void interact(const Hero &hero) override;
+
+  const string getType() const override { return "warrior"; }
 };
 } // namespace HE_Arc::RPG

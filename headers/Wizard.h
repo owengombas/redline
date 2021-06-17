@@ -18,6 +18,8 @@ public:
   void castSpell(const Hero &otherHero);
   void interact(const Hero &hero) override;
 
+  const string getType() const override { return "wizard"; }
+
   int getMana() const { return this->mana; }
 
 protected:

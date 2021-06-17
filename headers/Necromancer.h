@@ -15,5 +15,7 @@ public:
               int mana = 10, IObject *pObject = new Potion())
       : Wizard(strength, agility, intelligence, hp, name, mana, pObject) {}
   void riseUndeads();
+
+  const string getType() const override { return "necromancer"; }
 };
 } // namespace HE_Arc::RPG

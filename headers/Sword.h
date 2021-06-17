@@ -15,6 +15,8 @@ public:
   string getName() const override;
   int getFeature() const override;
 
+  Sword *clone() const override { return new Sword(*this); };
+
 private:
   int damage = 10;
 };
