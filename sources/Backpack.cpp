@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <iostream>
+#include <vector>
 
 #include "../headers/Backpack.h"
 
@@ -18,7 +19,7 @@ void Backpack::remove(const IObject *pObject) {
 }
 
 bool Backpack::exists(const IObject *pObject) {
-  auto found = find(this->getItems().begin(), this->getItems().end(), pObject);
+  auto found = find(this->items.begin(), this->items.end(), pObject);
   return found != this->getItems().end();
 }
 } // namespace HE_Arc::RPG

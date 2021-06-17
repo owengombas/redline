@@ -45,7 +45,8 @@ Hero &Hero::init(int strength, int agility, int intelligence, double hp,
 
 // A hero can exchange their backpack items with money
 void Hero::sell(IObject *pObject, Hero *hero) {
-  if (!this->backpack.exists(pObject)) {
+  bool exists = !this->backpack.exists(pObject);
+  if (exists) {
     throw runtime_error("You do not possess this item");
   }
 

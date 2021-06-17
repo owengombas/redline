@@ -6,3 +6,4 @@ resume/*.pdf
 test
 test.cpp
 *.log
+main.exe
