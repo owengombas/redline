@@ -1,5 +1,5 @@
-CC := clang++
-CFLAGS := -std=c++17 -v
+CC := g++
+CFLAGS := -std=c++17
 TARGET := main
 
 SRCS := main.cpp $(wildcard sources/*.cpp)
