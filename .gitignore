@@ -5,3 +5,4 @@ resume.zip
 resume/*.pdf
 test
 test.cpp
+*.log
