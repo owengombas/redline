@@ -5,6 +5,10 @@
 using namespace std;
 
 namespace HE_Arc::RPG {
+/**
+ * Initialize an PotionVender with all his items
+ * This items cannot disappear from his backpack during a transaction
+ */
 PotionVendor::PotionVendor(int strength, int agility, int intelligence,
                            double hp, string name, float factor,
                            IObject *pObject)

@@ -7,6 +7,9 @@
 using namespace std;
 
 namespace HE_Arc::RPG {
+/**
+ * Can cast a spell on an other Hero
+ */
 void Wizard::castSpell(const Hero &otherHero) {
   if (this->mana >= 2) {
     cout << "Fire ball!!!" << endl;
@@ -16,5 +19,8 @@ void Wizard::castSpell(const Hero &otherHero) {
   }
 }
 
-void Wizard::interact(const Hero &hero) {}
+void Wizard::interact(const Hero &hero) {
+  cout << "Hero " << this->getName() << " interact with the Wizard named "
+       << hero.getName();
+}
 } // namespace HE_Arc::RPG

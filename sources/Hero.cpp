@@ -26,11 +26,17 @@ Hero &Hero::operator=(const Hero &hero) {
   return *this;
 }
 
+/**
+ * Interact with an other Hero
+ */
 void Hero::interact(const Hero &otherHero) {
-  cout << "Hero " << this->getName() << " interact with "
+  cout << "Hero " << this->getName() << " interact with the Hero named "
        << otherHero.getName();
 }
 
+/**
+ * Initialize the hero with properties
+ */
 Hero &Hero::init(int strength, int agility, int intelligence, double hp,
                  string name, IObject *pObject) {
   this->agility = agility;
@@ -43,7 +49,9 @@ Hero &Hero::init(int strength, int agility, int intelligence, double hp,
   return *this;
 }
 
-// A hero can exchange their backpack items with money
+/**
+ * A hero can exchange (sell) their backpack items with money
+ */
 void Hero::sell(IObject *pObject, Hero *hero) {
   bool exists = !this->backpack.exists(pObject);
   if (exists) {
@@ -57,6 +65,7 @@ void Hero::sell(IObject *pObject, Hero *hero) {
   hero->backpack.add(pObject);
   this->backpack.remove(pObject);
 
+  // Log the transaction in transactions.log
   Log::writeTransaction(this, hero, pObject, price);
 }
 
