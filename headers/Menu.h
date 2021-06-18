@@ -15,6 +15,18 @@ using namespace std;
 namespace HE_Arc::RPG {
 /**
  * The class manage the menu and the navigation between actions
+ * It works with an arborescence system
+ * each menu correspond to a vector and a name
+ * So with this system we can easily implement a sub-menu program
+ *
+ * root {}
+ * ├── buy {1}
+ * │   ├── buy-sub-menu {1, 1}
+ * │   ├── ... {1, x}
+ * ├── exchange {2}
+ * │   ├── ... {2, x}
+ * └── sell {3}
+ *     └── ... {3, x}
  */
 class Menu {
 private:
