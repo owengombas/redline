@@ -12,7 +12,7 @@
     compilation terminated.
    ```
 
-4. Si vous voulez que votre terminal Windows sois en UTF-8, exécuter le fichier `windows-set-utf8.bat` (évite les problème d'affichage)
+4. Si vous voulez que votre terminal Windows sois en UTF-8, exécuter le fichier `windows-set-utf8.bat` (évite les problèmes d'affichage)
    ```
     PS C:\> .\windows-set-utf8.bat
    ```
