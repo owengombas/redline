@@ -1,5 +1,6 @@
 #pragma once
 #include "Hero.h"
+#include "IObject.h"
 #include "Sword.h"
 #include <iostream>
 #include <vector>
@@ -16,6 +17,12 @@ public:
 
   float getFactor() const { return this->factor; };
   const string getType() const override { return "vendor"; }
+
+  void addToBackbackWithFactor(IObject *object) {
+    IObject *newObject = object->clone();
+    newObject->setPriceFactor(this->factor);
+    this->getBackpack()->add(newObject);
+  }
 
   void sell(IObject *pObject, Hero *hero);
   void interact(const Hero &hero) override;
