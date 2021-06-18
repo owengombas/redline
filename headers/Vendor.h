@@ -2,8 +2,7 @@
 #include "Hero.h"
 #include "IObject.h"
 #include "Sword.h"
-#include <iostream>
-#include <vector>
+#include <string>
 
 using namespace std;
 namespace HE_Arc::RPG {

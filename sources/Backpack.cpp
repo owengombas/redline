@@ -1,7 +1,3 @@
-#include <algorithm>
-#include <iostream>
-#include <vector>
-
 #include "../headers/Backpack.h"
 
 using namespace std;

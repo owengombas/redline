@@ -1,9 +1,6 @@
 #pragma once
-#include <iostream>
-
 #include "Attackable.h"
-#include "Backpack.h"
-#include "IObject.h"
+#include <iostream>
 
 using namespace std;
 

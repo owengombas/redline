@@ -1,4 +1,8 @@
 #pragma once
+#include "Hero.h"
+#include "IObject.h"
+#include "Monster.h"
+#include "Vendor.h"
 #include <algorithm>
 #include <iostream>
 #include <list>
@@ -6,11 +10,6 @@
 #include <stack>
 #include <string>
 #include <utility>
-
-#include "Hero.h"
-#include "IObject.h"
-#include "Monster.h"
-#include "Vendor.h"
 
 using namespace std;
 

@@ -56,18 +56,32 @@
   
 - ✅ Utiliser le polymorphisme, la redéfinition et la surcharge des méthodes (y.c.
 des opérateurs)
-  - Utilisé avec la classe `Vendor` et `Hero` par exemple
+  - Utilisé avec la classe `Attackable` et `Hero` par exemple
 
 - ✅ Utiliser du code C++ moderne (C++11 ou suivants)
   - Le C++17 est utilisé
 
 ### Scénario 2 - Interaction/Fighting System
 - ✅ Ajouter 2 classes (types de monstres : ex. Orc ou Dragon)
+  - `Attackable`
+  - `Orc` 
+  - `Dragon` 
+  
 - ✅ Utiliser des Exceptions pour gérer les erreurs
-- Ajouter un fichier de log pour garder trace de tous les combats
-- Ajouter différents types de armes ou différents types d’attaque
+
+- ✅ Ajouter un fichier de log pour garder trace de tous les combats
+  - Tout est dans le fichier `fights.log`
+
+- ✅ Ajouter différents types de armes ou différents types d’attaque
+
 - ✅ Utiliser le polymorphisme, la redéfinition et la surcharge des méthodes (y.c. des opérateurs)
+  - Utilisé avec la classe `Attackable` et `Hero` par exemple
+
 - ✅Utiliser du code C++ moderne (C++11 ou suivants)
+  - Le C++17 est utilisé
+
+## `Game.h`
+La classe static `Game.h` gère tout le jeu et la navigation dans les menus
 
 ## Cours
 [Le cours est disponible sur CyberLearn (HE-Arc)](https://cyberlearn.hes-so.ch/course/view.php?id=15188)

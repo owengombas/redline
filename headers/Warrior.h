@@ -1,9 +1,8 @@
 #pragma once
-#include <iostream>
-
 #include "Hero.h"
 #include "IObject.h"
 #include "Sword.h"
+#include <string>
 
 using namespace std;
 

@@ -1,9 +1,8 @@
 #pragma once
-#include <iostream>
-
 #include "IObject.h"
 #include "Potion.h"
 #include "Wizard.h"
+#include <iostream>
 
 using namespace std;
 

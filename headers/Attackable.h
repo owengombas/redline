@@ -1,8 +1,5 @@
 #pragma once
-#include <iostream>
-
-#include "Backpack.h"
-#include "IObject.h"
+#include <string>
 
 using namespace std;
 

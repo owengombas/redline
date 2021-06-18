@@ -1,11 +1,8 @@
 #pragma once
-#include <ctime>
-#include <fstream>
-#include <iostream>
-
 #include "Attackable.h"
 #include "Hero.h"
 #include "IObject.h"
+#include <string>
 
 using namespace std;
 

@@ -29,5 +29,6 @@ public:
 private:
   float priceFactor = 1;
 };
+
 ostream &operator<<(ostream &s, const IObject &pObject);
 } // namespace HE_Arc::RPG
