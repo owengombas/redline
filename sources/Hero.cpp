@@ -37,7 +37,7 @@ Hero &Hero::operator=(const Hero &hero) {
  * Interact with an other Hero
  */
 void Hero::interact(const Hero &otherHero) {
-  cout << "Hero " << this->getName() << " interact with the Hero named "
+  cout << "Le héro " << this->getName() << " intéragis avec le héro "
        << otherHero.getName();
 }
 
@@ -47,13 +47,14 @@ void Hero::interact(const Hero &otherHero) {
 void Hero::sell(IObject *pObject, Hero *hero) {
   bool exists = !this->getBackpack()->exists(pObject);
   if (exists) {
-    throw runtime_error("You do not possess this item");
+    throw runtime_error("Vous ne possédez pas cet objet");
   }
 
   float price = pObject->getPrice();
 
   if (hero->money < price) {
-    throw runtime_error("You don't have enough money to buy this item");
+    throw runtime_error(
+        "Vous n'avez pas assez d'argent pour acheter cet objet");
   }
 
   this->money += price;

@@ -20,7 +20,7 @@ void Wizard::castSpell(const Hero &otherHero) {
 }
 
 void Wizard::interact(const Hero &hero) {
-  cout << "Hero " << this->getName() << " interact with the Wizard named "
+  cout << "le héro " << this->getName() << " intéragis avec le sorcier "
        << hero.getName();
 }
 } // namespace HE_Arc::RPG

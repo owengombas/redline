@@ -24,7 +24,7 @@ public:
     if (index < this->items.size()) {
       return this->items[index];
     }
-    throw runtime_error("Your backpack do not cointains this item");
+    throw runtime_error("Votre sac à dos ne contient pas cet objet");
   }
 
   bool isNotEmpty() const;

@@ -13,13 +13,14 @@ namespace HE_Arc::RPG {
  */
 void Vendor::sell(IObject *pObject, Hero *hero) {
   if (!this->backpack->exists(pObject)) {
-    throw runtime_error("This vendor do not sell this item");
+    throw runtime_error("Cet vendeur ne vend pas cet objet");
   }
 
   float price = pObject->getPrice();
 
   if (hero->money < price) {
-    throw runtime_error("You don't have enough money to buy this item");
+    throw runtime_error(
+        "Vous n'avez pas assez d'argent pour acheter cet objet");
   }
 
   // We clone the object and do not erase it from his backpack
@@ -35,7 +36,7 @@ void Vendor::sell(IObject *pObject, Hero *hero) {
 }
 
 void Vendor::interact(const Hero &hero) {
-  cout << "Hero " << this->getName() << " interact with the Vendor named "
+  cout << "Le héro " << this->getName() << " intéragis avec le vendeur "
        << hero.getName();
 }
 } // namespace HE_Arc::RPG

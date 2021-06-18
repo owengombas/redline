@@ -9,7 +9,7 @@ using namespace std;
 
 namespace HE_Arc::RPG {
 void Warrior::interact(const Hero &hero) {
-  cout << "Hero " << this->getName() << " interact with the Warrior named "
+  cout << "Le héro " << this->getName() << " intéragis avec le guerrier "
        << hero.getName();
 }
 } // namespace HE_Arc::RPG
