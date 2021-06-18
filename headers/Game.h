@@ -66,9 +66,9 @@ public:
   static void printChooseItem();
   static void printZero();
   static void printRootMenu();
-  static void printHeroMenu(vector<Hero *> heros);
-  static void printBuyMenu();
-  static void printExchangeMenu();
+  static void printBuyMenu(vector<Hero *> heroes);
+  static void printVendorBuyMenu();
+  static void printHeroesBuyMenu();
   static void printSellMenu();
   static void printChangeWeaponMenu();
   static void printFightMenu(vector<Attackable *> attackables);

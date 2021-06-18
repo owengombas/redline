@@ -50,9 +50,9 @@ void Game::updateMenu() {
     cout << *Game::hero << endl;
     Game::goBack();
   } else if (menu == "buy") {
-    Game::printBuyMenu();
+    Game::printVendorBuyMenu();
   } else if (menu == "exchange") {
-    Game::printExchangeMenu();
+    Game::printHeroesBuyMenu();
   } else if (menu == "sell") {
     Game::printSellMenu();
   } else if (menu == "money") {
@@ -132,13 +132,23 @@ void Game::printRootMenu() {
   Game::separate();
 }
 
-void Game::printHeroMenu(vector<Hero *> heros) {
+void Game::printBuyMenu(vector<Hero *> heroes) {
   int offset = 1;
   vector<pair<IObject *, Hero *>> objects{};
 
+  int size = heroes.size();
+
+  if (size <= 0) {
+    cout << endl
+         << "Aucun héro ne vend d'articles pour le moment, retour au menu "
+            "principal"
+         << endl;
+    Game::goBack();
+  }
+
   // Print all the Hero items to sell
-  for (int i = 0; i < heros.size(); i++) {
-    Hero *hero = heros[i];
+  for (int i = 0; i < size; i++) {
+    Hero *hero = heroes[i];
     int size = hero->getBackpack()->getItems().size();
 
     if (size <= 0) {
@@ -186,12 +196,12 @@ void Game::printHeroMenu(vector<Hero *> heros) {
   Game::goBack();
 }
 
-void Game::printBuyMenu() {
-  Game::printHeroMenu(
+void Game::printVendorBuyMenu() {
+  Game::printBuyMenu(
       vector<Hero *>(Game::vendors.begin(), Game::vendors.end()));
 }
 
-void Game::printExchangeMenu() { Game::printHeroMenu(Game::players); }
+void Game::printHeroesBuyMenu() { Game::printBuyMenu(Game::players); }
 
 void Game::printSellMenu() {
   IObject *object = 0;
@@ -221,7 +231,7 @@ void Game::printSellMenu() {
 
   cout << endl << "Vous allez vendre: " << *object << endl;
 
-  // Print all the other heros to sell
+  // Print all the other heroes to sell
   size = Game::players.size();
   for (int i = 0; i < size; i++) {
     Hero *player = Game::players[i];

@@ -25,7 +25,7 @@ using namespace std;
 using namespace HE_Arc::RPG;
 
 int main(int argc, char const *argv[]) {
-  // Initialize all the required heros and items
+  // Initialize all the required heroes and items
   list<Hero *> party;
 
   Sword *defaultSword = new Sword(10);
