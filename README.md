@@ -68,6 +68,7 @@ des opérateurs)
   - `Dragon` 
   
 - ✅ Utiliser des Exceptions pour gérer les erreurs
+  - Erreurs avec le `Backpack`, quand l'item n'existe pas
 
 - ✅ Ajouter un fichier de log pour garder trace de tous les combats
   - Tout est dans le fichier `fights.log`
