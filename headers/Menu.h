@@ -13,6 +13,9 @@
 using namespace std;
 
 namespace HE_Arc::RPG {
+/**
+ * The class manage the menu and the navigation between actions
+ */
 class Menu {
 private:
   static inline vector<Vendor *> vendors{};
@@ -21,8 +24,8 @@ private:
 
   static inline vector<int> menuTree{};
   static inline map<string, vector<int>> menus{
-      {"root", {}},  {"buy", {1}},    {"exchange", {2}},
-      {"sell", {3}}, {"attack", {4}}, {"money", {5}}};
+      {"root", {}},  {"buy", {1}},   {"exchange", {2}},
+      {"sell", {3}}, {"money", {4}}, {"fight", {5}}};
 
 public:
   static void printTitle() {
@@ -70,11 +73,11 @@ public:
       Menu::printEchangeMenu();
     } else if (menu == "sell") {
       Menu::printSellMenu();
-    } else if (menu == "attack") {
-      Menu::print("Attaquer");
     } else if (menu == "money") {
       cout << "Vous avez " << Menu::hero->getMoney() << "$" << endl;
       Menu::goBack();
+    } else if (menu == "fight") {
+      Menu::print("Attaquer");
     } else {
       Menu::print("Menu non trouvé, réessayer");
       Menu::readMenu();
@@ -142,8 +145,8 @@ public:
                         "Acheter des objets à un vendeur",
                         "Acheter des objets à d'autre joueurs",
                         "Vendre vos objets à d'autre joueurs",
-                        "Combattre",
-                        "Afficher votre solde"};
+                        "Afficher votre solde",
+                        "Combattre"};
     Menu::printOptions(options, 6);
     Menu::sperate();
   }
@@ -219,10 +222,12 @@ public:
 
     if (size <= 0) {
       cout << endl
-           << "Vous n'avez aucun objet à vendre, retour au menu" << endl;
+           << "Vous n'avez aucun objet à vendre, retour au menu principal"
+           << endl;
       Menu::goBack();
     }
 
+    // Print hero's item list
     for (int i = 0; i < size; i++) {
       IObject *object = hero->getBackpack()->getItem(i);
       cout << i + 1 << ". " << object->getPrice() << "$ " << *object << endl;
@@ -235,6 +240,7 @@ public:
 
     cout << endl << "Vous allez vendre: " << *object << endl;
 
+    // Print all the other heros to sell
     size = Menu::players.size();
     for (int i = 0; i < size; i++) {
       Hero *player = Menu::players[i];
@@ -242,6 +248,7 @@ public:
            << ")" << endl;
     }
 
+    // Sell the item
     option = Menu::verifyOption(size);
     if (option == -1)
       return;
@@ -253,18 +260,6 @@ public:
          << " pour " << object->getPrice() << "$" << endl
          << "Vous avez " << Menu::hero->getMoney() << "$" << endl;
 
-    // for (int i = 0; i < Menu::players.size(); i++) {
-    //   Hero *hero = Menu::players[i];
-    //   int size = hero->getBackpack()->getItems().size();
-
-    //   if (size <= 0) {
-    //     continue;
-    //   }
-
-    //   cout << hero->getType() << ": " << hero->getName() << endl;
-    //   offset += size;
-    //   cout << endl;
-    // }
     Menu::goBack();
   }
 
@@ -276,7 +271,7 @@ public:
   static int verifyOption(int size) {
     int option = Menu::read() - 1;
     if (option < 0 || option > size - 1) {
-      cout << "Saisie incorrecte, veuillez recommencer" << endl;
+      cout << "Saisie incorrecte, retour au menu principal" << endl;
       Menu::goBack();
       return -1;
     }
