@@ -34,6 +34,24 @@
    $ sh unix.sh
    ```
 
+## Projet
+### Scénario 1 - Trading System
+
+**Objectifs généraux:**
+- Ajouter la possibilité d'acheter et de vendre des objets et obtenir ou
+consommer
+- de l'Or: de / vers d'autres héros de / vers PNJs (classe Merchant)
+
+**Minimal requirements:**
+- ✅ Ajouter 2 classes (types de marchants : ex. potion vendors ou weapon vendors)
+- ✅ Développer une solution de trading
+- ✅ Utiliser au moins une exception pour gérer une erreur
+- ✅ Ajouter un fichier de log pour garder trace de toutes les transactions
+- ✅ Améliorer la classe "Backpack"
+- ✅ Utiliser le polymorphisme, la redéfinition et la surcharge des méthodes (y.c.
+des opérateurs)
+- ✅ Utiliser du code C++ modern (C++11 ou suivants)
+
 ## Cours
 [Le cours est disponible sur CyberLearn (HE-Arc)](https://cyberlearn.hes-so.ch/course/view.php?id=15188)
 

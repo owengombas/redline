@@ -19,25 +19,8 @@
 using namespace std;
 using namespace HE_Arc::RPG;
 
-/*
-Scénario 1 - Trading System
-
-Objectifs généraux:
-- Ajouter la possibilité d'acheter et de vendre des objets et obtenir ou
-consommer
-- de l'Or: de / vers d'autres héros de / vers PNJs (classe Merchant)
-
-Minimal requirements:
-- Ajouter 2 classes (types de marchants : ex. potion vendors ou weapon vendors)
-- Développer une solution de trading
-- Utiliser au moins une exception pour gérer une erreur
-- Ajouter un fichier de log pour garder trace de toutes les transactions
-- Améliorer la classe "Backpack"
-- Utiliser le polymorphisme, la redéfinition et la surcharge des méthodes (y.c.
-des opérateurs) Utiliser du code C++ modern (C++11 ou suivants)
-*/
-
 int main(int argc, char const *argv[]) {
+  // Initialize all the required heros and items
   list<Hero *> party;
 
   Sword *defaultSword = new Sword(10);
@@ -70,12 +53,6 @@ int main(int argc, char const *argv[]) {
   party.push_back(harry);
   party.push_back(aria);
 
-  // ven->getBackpack()->add(defaultSword->clone());
-
-  // ven->sell(ven->getBackpack()->getItem(0), clems);
-  // martin->sell(martin->getBackpack()->getItem(0), aria);
-  // ali->sell(ali->getBackpack()->getItem(0), harry);
-
   ven->getBackpack()->add(defaultShield);
   ven->getBackpack()->add(defaultPotion);
 
@@ -84,6 +61,7 @@ int main(int argc, char const *argv[]) {
   clems->getBackpack()->add(new Potion(10, 3));
   clems->getBackpack()->add(defaultSword);
 
+  // Shows the menu and initialize the navigation
   Menu::setHero(ven);
 
   vector<Vendor *> vendors{martin, ali, harry, aria};
