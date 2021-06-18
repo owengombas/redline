@@ -86,11 +86,11 @@ int main(int argc, char const *argv[]) {
   Game::setMonsters(monsters);
 
   Game::printTitle();
-  Game::sperate();
+  Game::separate();
 
   Game::print("Bonjour, vous êtes le héro " + ven->getName() +
               ". Voici votre carte d'identité ainsi que votre équipement:");
-  Game::printHero(ven);
+  cout << *ven << endl;
 
   Game::updateMenu();
 
