@@ -127,7 +127,7 @@ void Game::printRootMenu() {
                       "Afficher votre solde",
                       "Changer l'arme que vous avez dans vos mains",
                       "Combattre un joueur",
-                      "Combattre un Monstre"};
+                      "Combattre un monstre"};
   Game::printOptions(options, 9);
   Game::separate();
 }
