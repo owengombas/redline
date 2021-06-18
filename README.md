@@ -36,13 +36,6 @@
 
 ## Projet
 ### Scénario 1 - Trading System
-
-**Objectifs généraux:**
-- Ajouter la possibilité d'acheter et de vendre des objets et obtenir ou
-consommer
-- de l'Or: de / vers d'autres héros de / vers PNJs (classe Merchant)
-
-**Minimal requirements:**
 - ✅ Ajouter 2 classes (types de marchants : ex. potion vendors ou weapon vendors)
 - ✅ Développer une solution de trading
 - ✅ Utiliser au moins une exception pour gérer une erreur
@@ -50,7 +43,15 @@ consommer
 - ✅ Améliorer la classe "Backpack"
 - ✅ Utiliser le polymorphisme, la redéfinition et la surcharge des méthodes (y.c.
 des opérateurs)
-- ✅ Utiliser du code C++ modern (C++11 ou suivants)
+- ✅ Utiliser du code C++ moderne (C++11 ou suivants)
+
+### Scénario 2 - Interaction/Fighting System
+- ✅ Ajouter 2 classes (types de monstres : ex. Orc ou Dragon)
+- ✅ Utiliser des Exceptions pour gérer les erreurs
+- Ajouter un fichier de log pour garder trace de tous les combats
+- Ajouter différents types de armes ou différents types d’attaque
+- ✅ Utiliser le polymorphisme, la redéfinition et la surcharge des méthodes (y.c. des opérateurs)
+- ✅Utiliser du code C++ moderne (C++11 ou suivants)
 
 ## Cours
 [Le cours est disponible sur CyberLearn (HE-Arc)](https://cyberlearn.hes-so.ch/course/view.php?id=15188)
