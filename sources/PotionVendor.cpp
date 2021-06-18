@@ -1,6 +1,4 @@
 #include "../headers/PotionVendor.h"
-#include "../headers/Potion.h"
-#include <iostream>
 
 using namespace std;
 

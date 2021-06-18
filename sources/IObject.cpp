@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "../headers/IObject.h"
 
 using namespace std;

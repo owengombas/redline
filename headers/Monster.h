@@ -1,5 +1,6 @@
 #pragma once
 #include "Attackable.h"
+#include "Log.h"
 #include <iostream>
 
 using namespace std;

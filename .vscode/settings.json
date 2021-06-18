@@ -65,7 +65,8 @@
     "deque": "cpp",
     "list": "cpp",
     "map": "cpp",
-    "xutility": "cpp"
+    "xutility": "cpp",
+    "xstring": "cpp"
   },
   "python.pythonPath": "/usr/local/bin/python3"
 }

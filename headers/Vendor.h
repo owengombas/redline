@@ -1,6 +1,7 @@
 #pragma once
 #include "Hero.h"
 #include "IObject.h"
+#include "Log.h"
 #include "Sword.h"
 #include <string>
 

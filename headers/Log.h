@@ -2,6 +2,8 @@
 #include "Attackable.h"
 #include "Hero.h"
 #include "IObject.h"
+#include <ctime>
+#include <fstream>
 #include <string>
 
 using namespace std;

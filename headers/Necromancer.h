@@ -1,4 +1,5 @@
 #pragma once
+#include "Hero.h"
 #include "IObject.h"
 #include "Potion.h"
 #include "Wizard.h"

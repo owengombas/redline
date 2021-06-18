@@ -1,7 +1,4 @@
-#include <iostream>
-
 #include "../headers/Hero.h"
-#include "../headers/IObject.h"
 #include "../headers/Log.h"
 
 using namespace std;

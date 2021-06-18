@@ -2,10 +2,6 @@
 #include <iostream>
 #include <list>
 
-#include "./headers/Potion.h"
-#include "./headers/Shield.h"
-#include "./headers/Sword.h"
-
 #include "./headers/Hero.h"
 #include "./headers/Necromancer.h"
 #include "./headers/Warrior.h"
@@ -16,6 +12,10 @@
 
 #include "./headers/Dragon.h"
 #include "./headers/Orc.h"
+
+#include "./headers/Potion.h"
+#include "./headers/Shield.h"
+#include "./headers/Sword.h"
 
 #include "./headers/Game.h"
 

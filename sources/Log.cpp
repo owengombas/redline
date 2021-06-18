@@ -1,6 +1,3 @@
-#include <iostream>
-#include <string>
-
 #include "../headers/Log.h"
 
 using namespace std;

@@ -1,5 +1,4 @@
 #include "../headers/WeaponVendor.h"
-#include <iostream>
 
 using namespace std;
 

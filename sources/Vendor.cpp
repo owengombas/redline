@@ -1,6 +1,3 @@
-#include <iostream>
-
-#include "../headers/Log.h"
 #include "../headers/Vendor.h"
 
 using namespace std;

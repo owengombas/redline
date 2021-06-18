@@ -1,7 +1,3 @@
-#include <iostream>
-
-#include "../headers/Attackable.h"
-#include "../headers/Log.h"
 #include "../headers/Monster.h"
 
 using namespace std;

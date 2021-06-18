@@ -1,4 +1,5 @@
 #pragma once
+#include "Shield.h"
 #include "Sword.h"
 #include "Vendor.h"
 #include <string>

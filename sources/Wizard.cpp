@@ -1,8 +1,4 @@
 #include "../headers/Wizard.h"
-#include "../headers/Hero.h"
-#include "../headers/IObject.h"
-
-#include <iostream>
 
 using namespace std;
 

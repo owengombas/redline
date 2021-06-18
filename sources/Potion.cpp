@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "../headers/Potion.h"
 
 using namespace std;

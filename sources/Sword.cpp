@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "../headers/Sword.h"
 
 using namespace std;
