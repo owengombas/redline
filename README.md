@@ -73,6 +73,8 @@ des opérateurs)
   - Tout est dans le fichier `fights.log`
 
 - ✅ Ajouter différents types de armes ou différents types d’attaque
+  - `Axe`
+  - `Bow`
 
 - ✅ Utiliser le polymorphisme, la redéfinition et la surcharge des méthodes (y.c. des opérateurs)
   - Utilisé avec la classe `Attackable` et `Hero` par exemple

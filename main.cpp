@@ -13,6 +13,8 @@
 #include "./headers/Dragon.h"
 #include "./headers/Orc.h"
 
+#include "./headers/Axe.h"
+#include "./headers/Bow.h"
 #include "./headers/Potion.h"
 #include "./headers/Shield.h"
 #include "./headers/Sword.h"
@@ -62,6 +64,8 @@ int main(int argc, char const *argv[]) {
 
   ven->getBackpack()->add(defaultShield);
   ven->getBackpack()->add(defaultPotion);
+  ven->getBackpack()->add(new Bow(50));
+  ven->getBackpack()->add(new Axe(25));
 
   clems->getBackpack()->add(defaultShield);
   clems->getBackpack()->add(defaultPotion);
