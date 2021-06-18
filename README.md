@@ -1,4 +1,5 @@
 # CPP_FilRouge_ISCc
+[Le repo du projet se trouve sur GitLab](https://gitlab-etu.ing.he-arc.ch/owen.gombas/cpp_filrouge_iscc)
 
 ## Mise en place de l'environnement
 
