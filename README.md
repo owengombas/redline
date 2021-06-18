@@ -36,14 +36,30 @@
 
 ## Projet
 ### Scénario 1 - Trading System
-- ✅ Ajouter 2 classes (types de marchants : ex. potion vendors ou weapon vendors)
+- ✅ Ajouter 2 classes  
+  - `Vendor`
+  - `PotionVendor`
+  - `WeaponVendor`
+  
 - ✅ Développer une solution de trading
+  - `Hero.sell`
+  - `Vendor.sell`
+
 - ✅ Utiliser au moins une exception pour gérer une erreur
+  - Erreurs lors du trading, par exemple lorsque qu'un joueur n'a pas assez d'argent
+  
 - ✅ Ajouter un fichier de log pour garder trace de toutes les transactions
-- ✅ Améliorer la classe "Backpack"
+  - Tout est dans le fichier `transactions.log`
+  
+- ✅ Améliorer la classe `Backpack`
+  - La classe est une `list<IObject *>`
+  
 - ✅ Utiliser le polymorphisme, la redéfinition et la surcharge des méthodes (y.c.
 des opérateurs)
+  - Utilisé avec la classe `Vendor` par exemple
+
 - ✅ Utiliser du code C++ moderne (C++11 ou suivants)
+  - Le C++17 est utilisé
 
 ### Scénario 2 - Interaction/Fighting System
 - ✅ Ajouter 2 classes (types de monstres : ex. Orc ou Dragon)
