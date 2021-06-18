@@ -310,7 +310,7 @@ void Game::printFightMenu(vector<Attackable *> attackables) {
   if (Game::hero->isDead()) {
     isAttackerDeadStr = ", vous avez succombé à vos blessures... Aurevoir";
   } else {
-    isAttackedDeadStr =
+    isAttackerDeadStr =
         " (il vous reste " + to_string(Game::hero->getHp()) + "hp)";
   }
 
