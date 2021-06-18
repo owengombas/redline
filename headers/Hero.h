@@ -27,6 +27,7 @@ public:
    * Changing the object in hands change the given damage
    */
   void setObject(IObject *object) {
+    this->backpack->remove(object);
     this->getBackpack()->add(this->getObject());
     this->pObject = object;
   }

@@ -37,14 +37,10 @@ private:
   static inline Hero *hero;
 
   static inline vector<int> menuTree{};
-  static inline map<string, vector<int>> menus{{"root", {}},
-                                               {"buy", {1}},
-                                               {"exchange", {2}},
-                                               {"sell", {3}},
-                                               {"money", {4}},
-                                               {"fight-heroes", {5}},
-                                               {"fight-monsters", {6}},
-                                               {"identity", {7}}};
+  static inline map<string, vector<int>> menus{
+      {"root", {}},           {"identity", {1}},     {"buy", {2}},
+      {"exchange", {3}},      {"sell", {4}},         {"money", {5}},
+      {"change-weapon", {6}}, {"fight-heroes", {7}}, {"fight-monsters", {8}}};
 
 public:
   static void printTitle() {
@@ -89,6 +85,9 @@ public:
     if (menu == "root") {
       Game::printRootMenu();
       Game::readMenu();
+    } else if (menu == "identity") {
+      cout << *Game::hero << endl;
+      Game::goBack();
     } else if (menu == "buy") {
       Game::printBuyMenu();
     } else if (menu == "exchange") {
@@ -98,13 +97,12 @@ public:
     } else if (menu == "money") {
       cout << "Vous avez " << Game::hero->getMoney() << "$" << endl;
       Game::goBack();
+    } else if (menu == "change-weapon") {
+      Game::printChangeWeaponMenu();
     } else if (menu == "fight-heroes") {
       Game::printFightPlayersMenu();
     } else if (menu == "fight-monsters") {
       Game::printFightMonstersMenu();
-    } else if (menu == "identity") {
-      cout << *Game::hero << endl;
-      Game::goBack();
     } else {
       Game::print("Menu non trouvé, réessayer");
       Game::readMenu();
@@ -169,14 +167,15 @@ public:
   static void printRootMenu() {
     Game::print("Choisissez parmis les options suivantes: ");
     string options[] = {"Quitter le programme",
+                        "Afficher vos informations",
                         "Acheter des objets à un vendeur",
                         "Acheter des objets à d'autre joueurs",
                         "Vendre vos objets à d'autre joueurs",
                         "Afficher votre solde",
+                        "Changer l'arme que vous avez dans vos mains",
                         "Combattre un joueur",
-                        "Combattre un Monstre",
-                        "Afficher vos informations"};
-    Game::printOptions(options, 8);
+                        "Combattre un Monstre"};
+    Game::printOptions(options, 9);
     Game::sperate();
   }
 
@@ -370,6 +369,30 @@ public:
     if (Game::hero->isDead()) {
       exit(0);
     }
+
+    Game::goBack();
+  }
+
+  static void printChangeWeaponMenu() {
+    int size = Game::hero->getBackpack()->getItems().size();
+
+    cout << endl
+         << "Choisissez parmis les items présent dans votre backpack: " << endl;
+    for (int i = 0; i < size; i++) {
+      IObject *object = Game::hero->getBackpack()->getItem(i);
+      cout << i + 1 << ". " << *object << endl;
+    }
+
+    int option = Game::verifyOption(size);
+    if (option == -1)
+      return;
+    IObject *object = Game::hero->getBackpack()->getItem(option);
+
+    Game::hero->setObject(object);
+
+    cout << "Vous avez dans vos mains " << *(Game::hero->getObject())
+         << ", vous infligez maintenant " << Game::hero->getAttackDamage()
+         << " dégats" << endl;
 
     Game::goBack();
   }
