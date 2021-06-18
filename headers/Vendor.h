@@ -14,10 +14,10 @@ public:
       : Hero(strength, agility, intelligence, hp, name, pObject),
         factor(factor) {}
 
-  void sell(IObject *pObject, Hero *hero);
-
+  float getFactor() const { return this->factor; };
   const string getType() const override { return "vendor"; }
 
+  void sell(IObject *pObject, Hero *hero);
   void interact(const Hero &hero) override;
 
 protected:

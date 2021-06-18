@@ -12,11 +12,15 @@ namespace HE_Arc::RPG {
  * So this method is different from the one for Hero
  */
 void Vendor::sell(IObject *pObject, Hero *hero) {
-  if (!this->backpack.exists(pObject)) {
+  if (!this->backpack->exists(pObject)) {
     throw runtime_error("This vendor do not sell this item");
   }
 
-  float price = pObject->getPrice() * this->factor;
+  float price = pObject->getPrice();
+
+  if (hero->money < price) {
+    throw runtime_error("You don't have enough money to buy this item");
+  }
 
   // We clone the object and do not erase it from his backpack
   // because the vendor can sell infinite items that are in the backpack
@@ -24,7 +28,7 @@ void Vendor::sell(IObject *pObject, Hero *hero) {
 
   this->money += price;
   hero->money -= price;
-  hero->backpack.add(obj);
+  hero->backpack->add(obj);
 
   // Log the transaction
   Log::writeTransaction(this, hero, pObject, price);

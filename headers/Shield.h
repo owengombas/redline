@@ -9,7 +9,9 @@ namespace HE_Arc::RPG {
 class Shield : public IObject {
 public:
   Shield() = default;
-  Shield(int solidity) : solidity(solidity){};
+  Shield(int solidity, float priceFactor = 1)
+      : IObject(priceFactor), solidity(solidity){};
+  ;
   virtual ~Shield() override = default;
 
   string getName() const override;

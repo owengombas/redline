@@ -9,7 +9,8 @@ namespace HE_Arc::RPG {
 class Sword : public IObject {
 public:
   Sword() = default;
-  Sword(int damage) : damage(damage){};
+  Sword(int damage, float priceFactor = 1)
+      : IObject(priceFactor), damage(damage){};
   virtual ~Sword() override = default;
 
   string getName() const override;

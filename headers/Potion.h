@@ -9,7 +9,9 @@ namespace HE_Arc::RPG {
 class Potion : public IObject {
 public:
   Potion() = default;
-  Potion(int power) : power(power){};
+  Potion(int power, float priceFactor = 1)
+      : IObject(priceFactor), power(power){};
+  ;
   virtual ~Potion() override = default;
 
   string getName() const override;

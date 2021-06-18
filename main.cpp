@@ -14,6 +14,8 @@
 #include "./headers/PotionVendor.h"
 #include "./headers/WeaponVendor.h"
 
+#include "./headers/Menu.h"
+
 using namespace std;
 using namespace HE_Arc::RPG;
 
@@ -68,15 +70,36 @@ int main(int argc, char const *argv[]) {
   party.push_back(harry);
   party.push_back(aria);
 
-  ven->backpack.add(defaultSword->clone());
+  // ven->getBackpack()->add(defaultSword->clone());
 
-  ven->sell(ven->backpack.getItem(0), clems);
-  martin->sell(martin->backpack.getItem(0), aria);
-  ali->sell(ali->backpack.getItem(0), harry);
+  // ven->sell(ven->getBackpack()->getItem(0), clems);
+  // martin->sell(martin->getBackpack()->getItem(0), aria);
+  // ali->sell(ali->getBackpack()->getItem(0), harry);
 
-  for (const Hero *hero : party) {
-    cout << *hero << endl;
-  }
+  ven->getBackpack()->add(defaultShield);
+  ven->getBackpack()->add(defaultPotion);
+
+  clems->getBackpack()->add(defaultShield);
+  clems->getBackpack()->add(defaultPotion);
+  clems->getBackpack()->add(new Potion(10, 3));
+  clems->getBackpack()->add(defaultSword);
+
+  Menu::setHero(ven);
+
+  vector<Vendor *> vendors{martin, ali, harry, aria};
+  Menu::setVendors(vendors);
+
+  vector<Hero *> players{clems, jerem, julien, quentin};
+  Menu::setPlayers(players);
+
+  Menu::printTitle();
+  Menu::sperate();
+
+  Menu::print("Bonjour, vous êtes le héro " + ven->getName() +
+              ". Voici votre carte d'identité ainsi que votre équipement:");
+  Menu::printHero(ven);
+
+  Menu::updateMenu();
 
   return 0;
 }

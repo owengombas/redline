@@ -13,10 +13,10 @@ PotionVendor::PotionVendor(int strength, int agility, int intelligence,
                            double hp, string name, float factor,
                            IObject *pObject)
     : Vendor(strength, agility, intelligence, hp, name, factor, pObject) {
-  this->backpack.add(new Potion(10));
-  this->backpack.add(new Potion(20));
-  this->backpack.add(new Potion(40));
-  this->backpack.add(new Potion(80));
-  this->backpack.add(new Potion(160));
+  this->getBackpack()->add(new Potion(10, factor));
+  this->getBackpack()->add(new Potion(20, factor));
+  this->getBackpack()->add(new Potion(40, factor));
+  this->getBackpack()->add(new Potion(80, factor));
+  this->getBackpack()->add(new Potion(160, factor));
 }
 } // namespace HE_Arc::RPG

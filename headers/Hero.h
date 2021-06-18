@@ -13,13 +13,7 @@ public:
   Hero(const Hero &hero);
   Hero(int strength, int agility, int intelligence, double hp, string name,
        IObject *sword);
-
   virtual ~Hero();
-
-  virtual void interact(const Hero &otherHero) = 0;
-  virtual const string getType() const = 0;
-
-  void sell(IObject *pObject, Hero *hero);
 
   int getStrength() const { return strength; }
   int getAgility() const { return agility; }
@@ -28,14 +22,19 @@ public:
   float getMoney() const { return money; }
   string getName() const { return name; }
   IObject *getObject() const { return pObject; }
+  Backpack *getBackpack() const { return backpack; }
+
+  virtual void interact(const Hero &otherHero) = 0;
+  virtual const string getType() const = 0;
 
   friend class Vendor;
   friend ostream &operator<<(ostream &s, const Hero &hero);
   Hero &operator=(const Hero &hero);
 
-  Backpack backpack;
+  void sell(IObject *pObject, Hero *hero);
 
 protected:
+  Backpack *backpack;
   float money = 250;
   int strength = 0;
   int agility = 0;
@@ -43,10 +42,6 @@ protected:
   double hp = 0;
   string name = "no_name";
   IObject *pObject = nullptr;
-
-private:
-  Hero &init(int strength, int agility, int intelligence, double hp,
-             string name, IObject *sword);
 };
 
 ostream &operator<<(ostream &s, const Hero &hero);
