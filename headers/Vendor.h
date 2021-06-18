@@ -9,8 +9,8 @@ using namespace std;
 namespace HE_Arc::RPG {
 class Vendor : public Hero {
 public:
-  Vendor(int strength = 10, int agility = 5, int intelligence = 1,
-         double hp = 20, string name = "unknown vendor", float factor = 1,
+  Vendor(int strength = 10, int agility = 5, int intelligence = 1, int hp = 20,
+         string name = "unknown vendor", float factor = 1,
          IObject *pObject = new Sword())
       : Hero(strength, agility, intelligence, hp, name, pObject),
         factor(factor) {}

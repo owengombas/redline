@@ -11,8 +11,8 @@ namespace HE_Arc::RPG {
 class Necromancer : public Wizard {
 public:
   Necromancer(int strength = 10, int agility = 5, int intelligence = 1,
-              double hp = 20, string name = "unknown necromancer",
-              int mana = 10, IObject *pObject = new Potion())
+              int hp = 20, string name = "unknown necromancer", int mana = 10,
+              IObject *pObject = new Potion())
       : Wizard(strength, agility, intelligence, hp, name, mana, pObject) {}
   void riseUndeads();
 

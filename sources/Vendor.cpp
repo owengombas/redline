@@ -18,7 +18,7 @@ void Vendor::sell(IObject *pObject, Hero *hero) {
 
   float price = pObject->getPrice();
 
-  if (hero->money < price) {
+  if (hero->getMoney() < price) {
     throw runtime_error(
         "Vous n'avez pas assez d'argent pour acheter cet objet");
   }
@@ -28,8 +28,8 @@ void Vendor::sell(IObject *pObject, Hero *hero) {
   IObject *obj = pObject->clone();
 
   this->money += price;
-  hero->money -= price;
-  hero->backpack->add(obj);
+  hero->setMoney(hero->getMoney() - price);
+  hero->getBackpack()->add(obj);
 
   // Log the transaction
   Log::writeTransaction(this, hero, pObject, price);

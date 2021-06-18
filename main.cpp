@@ -14,7 +14,10 @@
 #include "./headers/PotionVendor.h"
 #include "./headers/WeaponVendor.h"
 
-#include "./headers/Menu.h"
+#include "./headers/Dragon.h"
+#include "./headers/Orc.h"
+
+#include "./headers/Game.h"
 
 using namespace std;
 using namespace HE_Arc::RPG;
@@ -27,12 +30,12 @@ int main(int argc, char const *argv[]) {
   Potion *defaultPotion = new Potion(5);
   Shield *defaultShield = new Shield(15);
 
-  Warrior *ven = new Warrior(20, 20, 20, 20, "Owen", defaultSword);
-  Wizard *clems = new Wizard(20, 20, 20, 20, "Clement", 10, defaultPotion);
-  Warrior *jerem = new Warrior(20, 20, 20, 20, "Jeremy", defaultSword);
-  Wizard *julien = new Wizard(20, 20, 20, 20, "Julien", 15, defaultPotion);
+  Warrior *ven = new Warrior(20, 20, 20, 150, "Owen", defaultSword);
+  Wizard *clems = new Wizard(20, 20, 20, 100, "Clement", 10, defaultPotion);
+  Warrior *jerem = new Warrior(20, 20, 20, 120, "Jeremy", defaultSword);
+  Wizard *julien = new Wizard(20, 20, 20, 110, "Julien", 15, defaultPotion);
   Necromancer *quentin =
-      new Necromancer(20, 20, 20, 20, "Quentin", 15, defaultPotion);
+      new Necromancer(20, 20, 20, 150, "Quentin", 15, defaultPotion);
 
   WeaponVendor *martin =
       new WeaponVendor(20, 20, 20, 20, "Martin", 1.9, defaultPotion);
@@ -42,6 +45,10 @@ int main(int argc, char const *argv[]) {
       new PotionVendor(20, 20, 20, 20, "Harry", 1.4, defaultSword);
   PotionVendor *aria =
       new PotionVendor(20, 20, 20, 20, "Aria", 2.2, defaultSword);
+
+  Dragon *damso = new Dragon(20, 20, 20, 20, "Damso");
+  Orc *koba = new Orc(20, 20, 20, 20, "Koba");
+  Orc *laylow = new Orc(20, 20, 20, 1000, "Laylow");
 
   party.push_back(ven);
   party.push_back(clems);
@@ -62,22 +69,25 @@ int main(int argc, char const *argv[]) {
   clems->getBackpack()->add(defaultSword);
 
   // Shows the menu and initialize the navigation
-  Menu::setHero(ven);
+  Game::setHero(ven);
 
   vector<Vendor *> vendors{martin, ali, harry, aria};
-  Menu::setVendors(vendors);
+  Game::setVendors(vendors);
 
   vector<Hero *> players{clems, jerem, julien, quentin};
-  Menu::setPlayers(players);
+  Game::setPlayers(players);
 
-  Menu::printTitle();
-  Menu::sperate();
+  vector<Monster *> monsters{damso, koba, laylow};
+  Game::setMonsters(monsters);
 
-  Menu::print("Bonjour, vous êtes le héro " + ven->getName() +
+  Game::printTitle();
+  Game::sperate();
+
+  Game::print("Bonjour, vous êtes le héro " + ven->getName() +
               ". Voici votre carte d'identité ainsi que votre équipement:");
-  Menu::printHero(ven);
+  Game::printHero(ven);
 
-  Menu::updateMenu();
+  Game::updateMenu();
 
   return 0;
 }

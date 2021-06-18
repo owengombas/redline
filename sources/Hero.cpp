@@ -7,10 +7,10 @@
 using namespace std;
 
 namespace HE_Arc::RPG {
-Hero::Hero(int strength, int agility, int intelligence, double hp, string name,
+Hero::Hero(int strength, int agility, int intelligence, int hp, string name,
            IObject *pObject)
-    : strength(strength), agility(agility), intelligence(intelligence), hp(hp),
-      name(name), pObject(pObject), backpack(new Backpack()) {}
+    : Attackable(strength, agility, intelligence, hp, name), pObject(pObject),
+      backpack(new Backpack()) {}
 
 Hero::~Hero() {
   delete this->pObject;
@@ -18,8 +18,7 @@ Hero::~Hero() {
 }
 
 Hero::Hero(const Hero &hero)
-    : strength(hero.strength), agility(hero.agility),
-      intelligence(hero.intelligence), hp(hero.hp), name(hero.name),
+    : Attackable(strength, agility, intelligence, hp, name),
       pObject(hero.pObject), backpack(new Backpack()) {}
 
 Hero &Hero::operator=(const Hero &hero) {
@@ -67,6 +66,19 @@ void Hero::sell(IObject *pObject, Hero *hero) {
   Log::writeTransaction(this, hero, pObject, price);
 }
 
+int Hero::getAttackDamage() const {
+  int damage = this->intelligence * 0.5 + this->agility + this->strength * 1.5 +
+               this->getObject()->getFeature() * 2;
+  return damage;
+}
+
+int Hero::attack(Attackable *attacked) {
+  int damage = this->getAttackDamage();
+  attacked->setHp(attacked->getHp() - damage);
+  Log::writeFight(this, attacked, damage);
+  return damage;
+}
+
 ostream &operator<<(ostream &s, const Hero &hero) {
   s << "=================" << endl;
   s << hero.getType() << ": " << hero.getName() << endl;
@@ -76,6 +88,7 @@ ostream &operator<<(ostream &s, const Hero &hero) {
   s << "Intelligence: " << hero.getIntelligence() << endl;
   s << "Money: " << hero.getMoney() << endl;
   s << "HP: " << hero.getHp() << endl;
+  s << "Attack: " << hero.getAttackDamage() << endl;
   s << "Object in hands: " << *hero.getObject() << endl;
 
   s << "Backpack: " << endl;

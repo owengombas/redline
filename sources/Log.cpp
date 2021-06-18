@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 #include "../headers/Log.h"
 
@@ -35,9 +36,27 @@ void Log::write(string path, string log) {
 void Log::writeTransaction(Hero *seller, Hero *client, IObject *pObject,
                            float price) {
   Log::write("transactions.log",
-             seller->getName() + "(" + seller->getType() + ") sold " +
+             seller->getName() + "(" + seller->getType() + ") a vendu " +
                  pObject->getName() + "(" + to_string(pObject->getFeature()) +
-                 ") to " + client->getName() + "(" + client->getType() + ")" +
-                 " for " + to_string(price) + "$");
+                 ") à " + client->getName() + "(" + client->getType() + ")" +
+                 " pour " + to_string(price) + "$");
+}
+
+/**
+ * Write a fight between heroes/monsters inside the fights.log file
+ * @param attacker The attacker
+ * @param attacked The attacked
+ */
+void Log::writeFight(Attackable *attacker, Attackable *attacked, int damage) {
+  string isDeadStr = "";
+
+  if (attacked->isDead()) {
+    isDeadStr = " (MORT)";
+  }
+
+  Log::write("fights.log", attacker->getName() + "(" + attacker->getType() +
+                               ") a attaqué " + attacked->getName() + "(" +
+                               attacked->getType() +
+                               ") dommage: " + to_string(damage) + isDeadStr);
 }
 } // namespace HE_Arc::RPG

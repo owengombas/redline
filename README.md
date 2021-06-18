@@ -56,7 +56,7 @@
   
 - ✅ Utiliser le polymorphisme, la redéfinition et la surcharge des méthodes (y.c.
 des opérateurs)
-  - Utilisé avec la classe `Vendor` par exemple
+  - Utilisé avec la classe `Vendor` et `Hero` par exemple
 
 - ✅ Utiliser du code C++ moderne (C++11 ou suivants)
   - Le C++17 est utilisé

@@ -1,45 +1,45 @@
 #pragma once
 #include <iostream>
 
+#include "Attackable.h"
 #include "Backpack.h"
 #include "IObject.h"
 
 using namespace std;
 
 namespace HE_Arc::RPG {
-class Hero {
+class Hero : public Attackable {
 public:
+  friend ostream &operator<<(ostream &s, const Hero &hero);
+
   Hero() = default;
   Hero(const Hero &hero);
-  Hero(int strength, int agility, int intelligence, double hp, string name,
+  Hero(int strength, int agility, int intelligence, int hp, string name,
        IObject *sword);
   virtual ~Hero();
 
-  int getStrength() const { return strength; }
-  int getAgility() const { return agility; }
-  int getIntelligence() const { return intelligence; }
-  int getHp() const { return hp; }
   float getMoney() const { return money; }
-  string getName() const { return name; }
   IObject *getObject() const { return pObject; }
   Backpack *getBackpack() const { return backpack; }
 
-  virtual void interact(const Hero &otherHero) = 0;
-  virtual const string getType() const = 0;
-
-  friend class Vendor;
-  friend ostream &operator<<(ostream &s, const Hero &hero);
-  Hero &operator=(const Hero &hero);
+  void setMoney(float money) { this->money = money; }
 
   void sell(IObject *pObject, Hero *hero);
+
+  int attack(Attackable *attackable) override;
+  int getAttackDamage() const override;
+
+  virtual void interact(const Hero &otherHero) = 0;
+
+  Hero &operator=(const Hero &hero);
 
 protected:
   Backpack *backpack;
   float money = 250;
-  int strength = 0;
-  int agility = 0;
-  int intelligence = 0;
-  double hp = 0;
+  int strength = 10;
+  int agility = 10;
+  int intelligence = 10;
+  int hp = 100;
   string name = "no_name";
   IObject *pObject = nullptr;
 };

@@ -8,7 +8,7 @@ namespace HE_Arc::RPG {
  * Initialize an WeaponVendor with all his items
  * This items cannot disappear from his backpack during a transaction
  */
-WeaponVendor::WeaponVendor(int strength, int agilit, int intelligenc, double hp,
+WeaponVendor::WeaponVendor(int strength, int agilit, int intelligenc, int hp,
                            string name, float factor, IObject *pObject)
     : Vendor(strength, agility, intelligence, hp, name, factor, pObject) {
   this->getBackpack()->add(new Sword(25, factor));
