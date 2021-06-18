@@ -62,10 +62,11 @@ int main(int argc, char const *argv[]) {
   party.push_back(harry);
   party.push_back(aria);
 
+  Axe *venAxe = new Axe(200);
   ven->getBackpack()->add(defaultShield);
   ven->getBackpack()->add(defaultPotion);
   ven->getBackpack()->add(new Bow(50));
-  ven->getBackpack()->add(new Axe(25));
+  ven->setObject(venAxe);
 
   clems->getBackpack()->add(defaultShield);
   clems->getBackpack()->add(defaultPotion);

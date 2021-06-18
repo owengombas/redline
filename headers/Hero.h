@@ -23,6 +23,14 @@ public:
 
   void setMoney(float money) { this->money = money; }
 
+  /**
+   * Changing the object in hands change the given damage
+   */
+  void setObject(IObject *object) {
+    this->getBackpack()->add(this->getObject());
+    this->pObject = object;
+  }
+
   void sell(IObject *pObject, Hero *hero);
 
   int attack(Attackable *attackable) override;
